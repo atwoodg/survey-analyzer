@@ -43,13 +43,24 @@ int main() {
         }
     }
 
+    //Reading in questions/assertions
+    char delim[] = ";";
+    char *token;
+    char questions[12][1000];
+    int j = 0;
 
-    for (int j = 0; j < i; j++) {
-        printf("%s", lines[j]);
+    token = strtok(lines[1], delim);
+    while (token != NULL && j<12) {
+        strcpy(questions[j], token);
+        token = strtok(NULL, delim);
+        j++;
     }
 
+    for (int j = 0; j < 12; j++) {
+        printf("Question %d: %s\n", j + 1, questions[j]);
+    }
+
+
     return 0;
-
-
 
 }
